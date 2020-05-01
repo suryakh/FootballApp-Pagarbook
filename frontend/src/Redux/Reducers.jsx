@@ -2,6 +2,8 @@ const LOGIN = "LOGIN"
 const LOGOUT = "LOGOUT"
 const COMPDATA ='COMPDATA'
 const SENTREQUEST ='SENTREQUEST'
+const SENTTEAMREQUEST= 'SENTTEAMREQUEST'
+const TEAMDATA ='TEAMDATA'
 
 const initialstate = {
     login:false,
@@ -45,7 +47,7 @@ const datareducer = (state=initialdatastate,action)=>{
         case SENTREQUEST:{
             return {
                 ...state,
-                getcompdata:false
+                getcompdata:false,
             }
         }
         case COMPDATA:{
@@ -53,6 +55,19 @@ const datareducer = (state=initialdatastate,action)=>{
                 ...state,
                 competitions:action.payload,
                 getcompdata:true
+            }
+        }
+        case SENTTEAMREQUEST:{
+            return{
+                ...state,
+                teamdata:false
+            }
+        }
+        case TEAMDATA:{
+            return{
+                ...state,
+                teamslist:action.payload,
+                teamdata:true
             }
         }
         default:{

@@ -5,6 +5,7 @@ import Home from '../Compponents/Home'
 import Login from '../authorization/Login'
 import Signup from '../authorization/Signup'
 import Nav from '../Compponents/Nav'
+import Team from '../Compponents/Team'
 
 
 export class Rounter extends Component {
@@ -18,6 +19,7 @@ export class Rounter extends Component {
                     <Route path='/login' exact render={(props)=><Login {...props}/>} />
                     <Route path='/signup' exact render={(props)=><Signup {...props} />} />
                     <Route path='/competition' exact render={(props)=><Home {...props} />} />
+                    <Route path='/teams/:id' exact render={(props)=><Team {...props} />} />
                 </Switch>
             </>
         )

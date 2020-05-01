@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import '../App.css'
+import {getteamlists } from '../Redux/Actions'
 
 
 class Competitioncards extends Component {
     getteams(id){
-        console.log(id)
-        axios({
-            method:'GET',
-            url:`http://localhost:5000/competitions/teams/${id}`,
-            headers: {'Authorization': this.props.value.token}
-        })
-        .then((res)=>console.log(res))
+        this.props.getteamlists(id,this.props.value.token)
+        
     }
     render() {
         console.log(this.props.data)
@@ -46,19 +42,19 @@ class Competitioncards extends Component {
                 <div className="col-12"><p><span>UpdatedBy:</span>{this.props.data.lastUpdate}</p></div>
             </div>
         )
+        
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        value: state.loginreducers
+        value: state.loginreducers,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        // storedata : (data)=>dispatch(storedata(data)),
-        // sentrequest:()=>dispatch(sentrequest())
+        getteamlists : (id,data)=>dispatch(getteamlists(id,data))
     }
 }
 

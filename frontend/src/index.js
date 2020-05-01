@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers,applyMiddleware } from 'redux'
 import {loginreducers,datareducer} from './Redux/Reducers'
+import thunk from 'redux-thunk'
 // import datareducer from './Redux/Reducers'
 
 
@@ -14,7 +15,7 @@ loginreducers,
 datareducer
 })
 
-const store = createStore(reducers)
+const store = createStore(reducers,applyMiddleware(thunk))
 
 const render = () => ReactDOM.render(
   <Provider store={store}>

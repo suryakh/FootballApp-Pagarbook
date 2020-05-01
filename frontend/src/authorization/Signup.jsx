@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {singupdata} from '../Redux/Actions'
 import axios from 'axios'
 
 export class Signup extends Component {
@@ -18,23 +19,29 @@ export class Signup extends Component {
         })
     }
     handleClick = () => {
-        axios({
-            method:"POST",
-            url:"http://localhost:5000/auth/signup",
-            data:{
-                username:this.state.username,
+        let temp= {
+            username:this.state.username,
                 email:this.state.email,
                 password:this.state.password,
                 mobile:this.state.mobile
-            }
-        })
-        .then((res)=>{
-            alert("user suceessfully registered")
-        })
-        .catch ((res)=>{
-            console.log("error")
-        })
-
+        }
+        this.props.singupdata(temp)
+        // axios({
+        //     method:"POST",
+        //     url:"http://localhost:5000/auth/signup",
+        //     data:{
+        //         username:this.state.username,
+        //         email:this.state.email,
+        //         password:this.state.password,
+        //         mobile:this.state.mobile
+        //     }
+        // })
+        // .then((res)=>{
+        //     alert("user suceessfully registered")
+        // })
+        // .catch ((res)=>{
+        //     console.log("error")
+        // })
     }
     render() {
         return (
@@ -77,8 +84,11 @@ const mapStateToProps = (state) => ({
     value:state.loginreducer
 })
 
-const mapDispatchToProps = {
+const mapDispatchToProps = dispatch => {
+    return {
+        singupdata:(data)=>dispatch(singupdata(data))
 
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
-import { login } from '../Redux/Actions'
+import { logindata } from '../Redux/Actions'
+import { Redirect } from 'react-router-dom'
 
 export class Login extends Component {
     constructor(props) {
@@ -21,24 +22,10 @@ export class Login extends Component {
             username: this.state.username,
             password: this.state.password
         }
-        axios({
-            method: "POST",
-            url: "http://localhost:5000/auth/login",
-            data: temp
-        })
-            .then((res) => {
-                let temp = {
-                    token: res.data.token,
-                    username: this.state.username
-                }
-                this.props.login(temp)
-                this.props.history.push("/")
-                console.log(res)
-            })
-
+        this.props.logindata(temp)
     }
     render() {
-        console.log(this.props.value)
+        if(!this.props.value.login){
         return (
             <div className="container">
                 <div className="row">
@@ -64,6 +51,12 @@ export class Login extends Component {
                 </div>
             </div>
         )
+        }
+        else {
+            return(
+                <Redirect to="/" />
+            )
+        }
     }
 }
 
@@ -75,7 +68,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        login: (a) => dispatch(login(a))
+        logindata: (a) => dispatch(logindata(a))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
