@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { createStore, combineReducers } from 'redux'
-import loginreducers from './Redux/Reducers'
+import {loginreducers,datareducer} from './Redux/Reducers'
+// import datareducer from './Redux/Reducers'
+
 
 import App from './App';
 
 const reducers = combineReducers({
-loginreducers
+loginreducers,
+datareducer
 })
 
 const store = createStore(reducers)

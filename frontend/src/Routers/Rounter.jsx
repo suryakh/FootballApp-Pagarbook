@@ -17,6 +17,7 @@ export class Rounter extends Component {
                     <Route path='/' exact render={(props)=><Home {...props}/>} />
                     <Route path='/login' exact render={(props)=><Login {...props}/>} />
                     <Route path='/signup' exact render={(props)=><Signup {...props} />} />
+                    <Route path='/competition' exact render={(props)=><Home {...props} />} />
                 </Switch>
             </>
         )

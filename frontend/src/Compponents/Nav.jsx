@@ -28,7 +28,6 @@ export class Nav extends Component {
 
 const mapStateToProps = (state) => {
     return {
-
         value: state.loginreducers
     }
 }

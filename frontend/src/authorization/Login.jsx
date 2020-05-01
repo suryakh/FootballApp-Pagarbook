@@ -32,7 +32,7 @@ export class Login extends Component {
                     username: this.state.username
                 }
                 this.props.login(temp)
-                this.props.history.push("/tlists")
+                this.props.history.push("/")
                 console.log(res)
             })
 
