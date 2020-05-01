@@ -7,7 +7,7 @@ app = Flask(__name__)
 mysql = MySQL(app)
 CORS(app)
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '$uryA11472'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'football'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
