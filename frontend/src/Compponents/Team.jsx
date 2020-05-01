@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Redirect} from 'react-router-dom'
+import {Redirect,Link} from 'react-router-dom'
 
 export class Team extends Component {
     constructor(props) {
@@ -48,7 +48,6 @@ export class Team extends Component {
                 </div><div>
                     <p>{this.state.team.lastUpdated}</p>
                 </div>
-                <div></div>
             </div>
         )
     }

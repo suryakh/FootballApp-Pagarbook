@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../Redux/Actions'
 import { Link } from 'react-router-dom'
+import '../App.css'
 
 
 export class Nav extends Component {
@@ -9,16 +10,17 @@ export class Nav extends Component {
         this.props.logout()
     }
     render() {
-        console.log(this.props)
+        console.log(this.props.value.user)
         return (
-            <div className="container-fluid bg-primary p-3">
+            <div className="navdiv p-3">
                 <div className='row'>
                     <div className="col-3">LOGO</div>
                     <div className="col-3"></div>
-                    <div className="col-2"> <Link to='/'><button className="btn btn-light">Home</button></Link></div>
-                    {!this.props.value.login && <div className="col-2"> <Link to='/login'><button className="btn btn-light">Login</button></Link></div>}
-                    <div className="col-2"><Link to='/Signup'><button className="btn btn-light">Signup</button></Link></div>
-                    {this.props.value.login && <div className="col-2"><button className="btn btn-light" onClick={() => this.handleClick()}>Logout</button></div>}
+                    <div className="col-1"> <Link to='/'><button className="btn btn-light">Home</button></Link></div>
+                    {!this.props.value.login && <div className="col-1"> <Link to='/login'><button className="btn btn-light">Login</button></Link></div>}
+                    <div className="col-1"><Link to='/Signup'><button className="btn btn-light">Signup</button></Link></div>
+                    {this.props.value.login && <div className="col-1"><p>{this.props.value.user}</p></div>}
+                    {this.props.value.login && <div className="col-1"><button className="btn btn-light" onClick={() => this.handleClick()}>Logout</button></div>}
 
                 </div>
             </div>

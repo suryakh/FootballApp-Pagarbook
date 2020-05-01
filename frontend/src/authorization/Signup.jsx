@@ -25,54 +25,51 @@ export class Signup extends Component {
                 password:this.state.password,
                 mobile:this.state.mobile
         }
-        this.props.singupdata(temp)
-        // axios({
-        //     method:"POST",
-        //     url:"http://localhost:5000/auth/signup",
-        //     data:{
-        //         username:this.state.username,
-        //         email:this.state.email,
-        //         password:this.state.password,
-        //         mobile:this.state.mobile
-        //     }
-        // })
-        // .then((res)=>{
-        //     alert("user suceessfully registered")
-        // })
-        // .catch ((res)=>{
-        //     console.log("error")
-        // })
+        if(this.state.username !== "" && this.state.password !== ""){
+            this.props.singupdata(temp)
+        }
+        else {
+            alert("please fill all details")
+        }
+        this.setState({
+            username:"",
+                email:"",
+                password:"",
+                mobile:""
+        })
     }
     render() {
         return (
-            <div className="container">
-                <div className="row">
+            <div className="container d-flex justify-content-center">
+                <div className="col-6" style={{height:"700px",marginTop:"10%"}}>
+                <div className="row p-5 formdiv">
                     <div className="col-12">
                         <label>Username</label>
                     </div>
                     <div className="col-12">
-                        <input name="username" value={this.state.username} type="text" onChange={this.handleChange} />
+                        <input className="col-12 form-control" name="username" placeholder="enter username" value={this.state.username} type="text" onChange={this.handleChange} />
                     </div>
-                    <div className="col-12">
+                    <div  className="col-12">
                         <label>Email</label>
                     </div>
                     <div className="col-12">
-                        <input name="email" value={this.state.email} type="text" onChange={this.handleChange} />
+                        <input className="col-12 form-control" name="email" placeholder="enter email" value={this.state.email} type="text" onChange={this.handleChange} />
                     </div>
                     <div className="col-12">
                         <label>Password</label>
                     </div>
                     <div className="col-12">
-                        <input type="text" name="password" value={this.state.password} onChange={this.handleChange} />
+                        <input className="col-12 form-control" type="text" name="password" placeholder="enter password" value={this.state.password} onChange={this.handleChange} />
                     </div>
                     <div className="col-12">
                         <label>Mobile</label>
                     </div>
                     <div className="col-12">
-                        <input type="text" name="mobile" value={this.state.mobile} onChange={this.handleChange} />
+                        <input className="col-12 form-control" type="text" name="mobile" placeholder="enter mobile no." value={this.state.mobile} onChange={this.handleChange} />
                     </div>
-                    <div className="col-12">
-                        <button onClick={this.handleClick}>Signup</button>
+                    <div className="col-12 text-center m-4">
+                        <button className="btn btn-success" onClick={this.handleClick}>Signup</button>
+                    </div>
                     </div>
                 </div>
             </div>

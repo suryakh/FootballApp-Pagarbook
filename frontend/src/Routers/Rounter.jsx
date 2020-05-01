@@ -21,6 +21,9 @@ export class Rounter extends Component {
                     <Route path='/competition' exact render={(props)=><Home {...props} />} />
                     <Route path='/teams/:id' exact render={(props)=><Team {...props} />} />
                 </Switch>
+                <div className="container-fluid">
+                    some dsataaaa
+                </div>
             </>
         )
     }

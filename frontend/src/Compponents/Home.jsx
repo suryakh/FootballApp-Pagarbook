@@ -22,14 +22,20 @@ export class Home extends Component {
         console.log(this.props.data)
         if(this.props.value.login){
         return (
-            <div className="row">
+            <div className="row maindiv">
                 <div className="col-9">
-                    <div className="row">
+                    <div className="row d-flex justify-content-center">
+                        <div className="col-12">
+                            <h2>Competitions</h2>
+                        </div>
                     {this.props.data.getcompdata && this.props.data.competitions.map((ele)=><Competitioncards data={ele}/>) }
                     </div>
                 </div>
-                <div className="col-3">
-        {this.props.data.teamdata && this.props.data.teamslist.map((ele)=><div className="col-12"><Link to= {`/teams/${ele.id}`}>{ele.name}</Link></div>)}
+                <div className="col-3 border">
+                    <div className="col-12 bg-light">
+        <h3>{`Teams For ${this.props.data.teamslist.Name}`}</h3>
+                    </div>
+        {this.props.data.teamdata && this.props.data.teamslist.map((ele)=><div className="col-12"><Link to= {`/teams/${ele.id}`}><div className="col-12 teamlist"><h3>{ele.name}</h3></div></Link></div>)}
                 </div>
                 Home
             </div>
