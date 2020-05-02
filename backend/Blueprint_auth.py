@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask import request
+from flask import request,jsonify
 import os
 import json
 import base64
@@ -46,8 +46,45 @@ def login():
         return json.dumps({"token":str(encode_Data),"username":user["username"]})
     else:
         return json.dumps({"message":"inavlid input"})
-
     
+@auth.route('/addfav/<id>',methods=['GET','POST','DELETE'])
+def addfav(id):
+    if request.method == 'POST':
+        token = request.headers.get('Authorization')
+        encoded_data = token.split(' ')[0]
+        try:
+            decode_data = jwt.decode(encoded_data,'users',algorithms=['HS256'])
+            print(decode_data['id'])
+            cursor = mysql.connection.cursor()
+            cursor.execute(
+            """insert into userfav (competition_id,user_id) values (%s,%s)""",(id,decode_data['id'])
+            )
+            cursor.connection.commit()
+            cursor.close()
+            return json.dumps({'id':id})
+        except:
+            return json.dumps({'message':'error'}),400   
+    elif request.method == 'GET':
+        token = request.headers.get('Authorization')
+        encoded_data = token.split(' ')[0]
+        try:
+            decode_data = jwt.decode(encoded_data,'users',algorithms=['HS256'])
+            cursor = mysql.connection.cursor()
+            cursor.execute(
+            """select * from userfav left join competitions on userfav.competition_id = competitions.id where userfav.user_id = %s""",(decode_data['id'],)
+            )
+            results = cursor.fetchall()
+            cursor.close()
+            print(decode_data['id'])
+            items = []
+            for item in results:
+                items.append(item)
+            return jsonify(items)
+        except:
+            return json.dumps({'message':'error'}),400
+                                                                                                                                                                                                                                                                                           
+        
+
 
 def generate_salt():
     salt = os.urandom(16)

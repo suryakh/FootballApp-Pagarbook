@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {singupdata} from '../Redux/Actions'
-import axios from 'axios'
 
 export class Signup extends Component {
     constructor(props) {
@@ -41,7 +40,7 @@ export class Signup extends Component {
     render() {
         return (
             <div className="container d-flex justify-content-center">
-                <div className="col-6" style={{height:"700px",marginTop:"10%"}}>
+                <div className="col-lg-6 col-xl-6 col-sm-12 col-md-12" style={{height:"550px",marginTop:"10%"}}>
                 <div className="row p-5 formdiv">
                     <div className="col-12">
                         <label>Username</label>

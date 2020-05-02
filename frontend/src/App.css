@@ -45,6 +45,12 @@
 
 
 }
+.competionsdiv {
+    border:5px solid white;
+    border-radius: 30px;
+    padding:20px;
+    background-color:#5d4195;
+}
 .hidden {
     display: none;
 }
@@ -59,6 +65,21 @@
     border-radius: 10px 10px 0px 0px;
     color: white;
 }
-.flagdiv {
+.flagdiv image {
     height: 300px;
+}
+.userfavdiv {
+    text-align: center;
+    border:5px solid white;
+    border-radius: 30px;
+    background-color:#5d4195;
+}
+.userfavdiv > div > div{
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
+
+}
+.footerdiv {
+    background-color: #bbbbbb;
 }

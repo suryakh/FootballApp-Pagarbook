@@ -1,26 +1,31 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleRight,faStar } from '@fortawesome/free-solid-svg-icons'
+
 import '../App.css'
-import { getteamlists } from '../Redux/Actions'
+import { getteamlists,toFav } from '../Redux/Actions'
 
 
 class Competitioncards extends Component {
-    getteams(id) {
+    getteams=(id)=>{
         let reqdiv = document.getElementById(id)
         console.log(reqdiv)
         this.props.getteamlists(id, this.props.value.token)
         reqdiv.classList.remove("hidden")
         reqdiv.classList.add("d-block")
         reqdiv.classList.add("d-md-none")
-
-
-
     }
+    addtoFav=(id)=>{
+        if(this.props.teamsdata.userfav.length<3){
+        this.props.toFav(id,this.props.value.token)
+        }
+        else {
+            alert("you exceeded three favourite competitions limit")
+        }
+    }   
     render() {
-        console.log(this.props.data)
         return (
             <div className="col-xl-5 col-lg-5 col-md-5 col-sm-12 m-2 p-3 bg-light card">
                 <div className="row">
@@ -40,11 +45,12 @@ class Competitioncards extends Component {
                                 <div className="col-6 text-right">
                                     <p><span>end:</span>{this.props.data.endDate}</p>
                                 </div>
+                             <button className="btn btn-light" onClick={()=>this.addtoFav(this.props.data.id)}>add to favourite <FontAwesomeIcon icon={faStar} color='yellow'/></button>
                             </div>
                         </div>
                         <div className="col-12 text-right"><p><span>UpdatedBy:</span>{this.props.data.lastUpdate}</p></div>
                     </div>
-                    <div className="col-1 verticalclick" onClick={() => this.getteams(this.props.data.id)} data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <div className="col-1 verticalclick" onClick={() => this.getteams(this.props.data.id)}>
                         <Link to={`/competition?id=${this.props.data.id}/teams`}>
                             <div><FontAwesomeIcon icon={faAngleRight} size="2x" />
                             </div>
@@ -69,7 +75,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getteamlists: (id, data) => dispatch(getteamlists(id, data))
+        getteamlists: (id, data) => dispatch(getteamlists(id, data)),
+        toFav:(id,token)=>dispatch(toFav(id,token))
     }
 }
 

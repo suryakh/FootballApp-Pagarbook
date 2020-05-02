@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Redirect,Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 export class Team extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ export class Team extends Component {
         if(this.props.value.login){
         return (
             <div className="container d-flex justify-content-center">
-            <div className="col-8 p-5 m-5 teamcard">
+            <div className="col-lg-8 col-xl-8 col-sm-12 col-md-12 p-5 m-lg-5 m-xl-5  teamcard">
                 <div className="teamtitle p-3 m-2">
                     <h3>{this.state.team.tla}</h3>
                 </div>

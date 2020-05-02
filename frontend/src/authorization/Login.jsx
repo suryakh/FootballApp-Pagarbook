@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import { logindata } from '../Redux/Actions'
 import { Redirect, Link } from 'react-router-dom'
 import "../App.css"
@@ -29,9 +28,8 @@ export class Login extends Component {
         if (!this.props.value.login) {
             return (
                 <div className="container d-flex justify-content-center">
-                    <div className="col-6" style={{ height: "600px", marginTop: "20%" }}>
+                    <div className="col-lg-6 col-xl-6 col-sm-12 col-md-12" style={{ height: "450px", marginTop: "20%" }}>
                         <div className="row p-5 formdiv" >
-                            {/* <div className="col-12"> */}
                             <div className="col-12">
                                 <label>Username</label>
                             </div>

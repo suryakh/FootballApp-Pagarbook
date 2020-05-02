@@ -23,7 +23,7 @@ def getCompetionData():
             items.append(item)
         return jsonify(items)
     except:
-        return "error"    
+        return json.dumps({'message':'error'}),400  
     
 @competitions.route('/teams/<id>')
 def getteamsdata(id):
@@ -42,4 +42,4 @@ def getteamsdata(id):
             items.append(item)
         return jsonify(items)
     except:
-        return "error"
+        return json.dumps({'message':'error'}),400

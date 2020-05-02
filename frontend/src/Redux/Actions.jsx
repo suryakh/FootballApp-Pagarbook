@@ -5,6 +5,8 @@ const COMPDATA ='COMPDATA'
 const SENTREQUEST = 'SENTREQUEST'
 const SENTTEAMREQUEST= 'SENTTEAMREQUEST'
 const TEAMDATA ='TEAMDATA'
+const ADDFAV='ADDFAV'
+const FAVLIST= 'FAVLIST'
 
 const login =(data)=>{
     return{
@@ -40,7 +42,20 @@ const sentteamsrequest=()=>{
         type:SENTTEAMREQUEST
     }
 }
+const addfav=(id)=>{
+    return{
+        type:ADDFAV,
+        payload:id
+    }
+}
 
+const addfavlist = (data)=>{
+    console.log(data)
+    return{
+        type:FAVLIST,
+        payload:data
+    }
+}
 
     const logindata = (data) => {
         return dispatch => {
@@ -99,5 +114,26 @@ const sentteamsrequest=()=>{
             .then((res)=>dispatch(teams(res.data)))
         }
     }
-
-export {logindata,logout,singupdata,getcompetitions,getteamlists}
+    const  toFav = (id,token)=>{
+        return dispatch=>{
+            axios({
+                method:'POST',
+                url:`http://localhost:5000/auth/addfav/${id}`,
+                headers:{'Authorization':token}
+            })
+            .then ((res)=>dispatch(addfav(res.data.id)))             
+        }
+    }
+    const getuserfav = (token)=>{
+        console.log(token)
+       return  dispatch=>{
+            axios({
+                method:'GET',
+                url:`http://localhost:5000/auth/addfav/${1}`,
+                headers:{'Authorization':token}
+            })
+            // .then((res)=>console.log(res))
+            .then ((res)=>dispatch(addfavlist(res.data)))             
+        }
+    }
+export {logindata,logout,singupdata,getcompetitions,getteamlists,toFav,getuserfav}
