@@ -20,7 +20,7 @@ export class Home extends Component {
             return (
                 <div className="row maindiv p-3">
                     <div className="col-lg-9 col-xl-9 col-md-9 col-sm-12" >
-                        <div className="row d-flex justify-content-center">
+                        <div className="row d-flex justify-content-center cardholder">
                             <div className="col-12">
                                 <div className="text-white">
                                     <h1>Welcome to Football Champion Leagues..</h1>
@@ -28,8 +28,8 @@ export class Home extends Component {
                                         <h2>Competitions</h2>
                                     </div>
                                     {this.props.data.userfav[0] && <div className="userfavdiv col-12 mt-2 p-2">
-                                    <h3>Your favourite competions</h3>
-                                    <div className="row text-center m-1">{this.props.data.userfav.map((ele) => <div className="col-4 mt-1 p-3">{ele.Name}</div>)}</div>
+                                        <h3>Your favourite competions</h3>
+                                        <div className="row text-center m-1">{this.props.data.userfav.map((ele) => <div className="col-4 mt-1 p-3">{ele.Name}</div>)}</div>
                                     </div>}
                                 </div>
                             </div>

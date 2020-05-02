@@ -7,7 +7,7 @@
     box-shadow: 10px 10px 40px grey;
 }
 .maindiv {
-    background: #6441A5;  /* fallback for old browsers */
+    background: #6441A5; 
     background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
 }
@@ -44,6 +44,10 @@
     background-image: linear-gradient(90deg, #5d4195 0%, #ffffff 100%);
 
 
+}
+.cardholder {
+    height: 1000px;
+    overflow: auto;
 }
 .competionsdiv {
     border:5px solid white;

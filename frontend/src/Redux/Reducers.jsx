@@ -1,7 +1,7 @@
 const LOGIN = "LOGIN"
 const LOGOUT = "LOGOUT"
 const COMPDATA = 'COMPDATA'
-const SENTREQUEST = 'SENTREQUEST'
+const SENTCOMPEREQUEST = 'SENTCOMPEREQUEST'
 const SENTTEAMREQUEST = 'SENTTEAMREQUEST'
 const TEAMDATA = 'TEAMDATA'
 const ADDFAV = 'ADDFAV'
@@ -47,7 +47,7 @@ const loginreducers = (state = initialstate, action) => {
 
 const datareducer = (state = initialdatastate, action) => {
     switch (action.type) {
-        case SENTREQUEST: {
+        case SENTCOMPEREQUEST: {
             return {
                 ...state,
                 getcompdata: false,

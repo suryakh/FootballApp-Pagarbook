@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {singupdata} from '../Redux/Actions'
+import { singupdata } from '../Redux/Actions'
 
 export class Signup extends Component {
     constructor(props) {
@@ -18,57 +18,57 @@ export class Signup extends Component {
         })
     }
     handleClick = () => {
-        let temp= {
-            username:this.state.username,
-                email:this.state.email,
-                password:this.state.password,
-                mobile:this.state.mobile
+        let temp = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+            mobile: this.state.mobile
         }
-        if(this.state.username !== "" && this.state.password !== ""){
+        if (this.state.username !== "" && this.state.password !== "") {
             this.props.singupdata(temp)
         }
         else {
             alert("please fill all details")
         }
         this.setState({
-            username:"",
-                email:"",
-                password:"",
-                mobile:""
+            username: "",
+            email: "",
+            password: "",
+            mobile: ""
         })
     }
     render() {
         return (
             <div className="container d-flex justify-content-center">
-                <div className="col-lg-6 col-xl-6 col-sm-12 col-md-12" style={{height:"550px",marginTop:"10%"}}>
-                <div className="row p-5 formdiv">
-                    <div className="col-12">
-                        <label>Username</label>
-                    </div>
-                    <div className="col-12">
-                        <input className="col-12 form-control" name="username" placeholder="enter username" value={this.state.username} type="text" onChange={this.handleChange} />
-                    </div>
-                    <div  className="col-12">
-                        <label>Email</label>
-                    </div>
-                    <div className="col-12">
-                        <input className="col-12 form-control" name="email" placeholder="enter email" value={this.state.email} type="text" onChange={this.handleChange} />
-                    </div>
-                    <div className="col-12">
-                        <label>Password</label>
-                    </div>
-                    <div className="col-12">
-                        <input className="col-12 form-control" type="text" name="password" placeholder="enter password" value={this.state.password} onChange={this.handleChange} />
-                    </div>
-                    <div className="col-12">
-                        <label>Mobile</label>
-                    </div>
-                    <div className="col-12">
-                        <input className="col-12 form-control" type="text" name="mobile" placeholder="enter mobile no." value={this.state.mobile} onChange={this.handleChange} />
-                    </div>
-                    <div className="col-12 text-center m-4">
-                        <button className="btn btn-success" onClick={this.handleClick}>Signup</button>
-                    </div>
+                <div className="col-lg-6 col-xl-6 col-sm-12 col-md-12" style={{ height: "550px", marginTop: "10%" }}>
+                    <div className="row p-5 formdiv">
+                        <div className="col-12">
+                            <label>Username</label>
+                        </div>
+                        <div className="col-12">
+                            <input className="col-12 form-control" name="username" placeholder="enter username" value={this.state.username} type="text" onChange={this.handleChange} />
+                        </div>
+                        <div className="col-12">
+                            <label>Email</label>
+                        </div>
+                        <div className="col-12">
+                            <input className="col-12 form-control" name="email" placeholder="enter email" value={this.state.email} type="text" onChange={this.handleChange} />
+                        </div>
+                        <div className="col-12">
+                            <label>Password</label>
+                        </div>
+                        <div className="col-12">
+                            <input className="col-12 form-control" type="text" name="password" placeholder="enter password" value={this.state.password} onChange={this.handleChange} />
+                        </div>
+                        <div className="col-12">
+                            <label>Mobile</label>
+                        </div>
+                        <div className="col-12">
+                            <input className="col-12 form-control" type="text" name="mobile" placeholder="enter mobile no." value={this.state.mobile} onChange={this.handleChange} />
+                        </div>
+                        <div className="col-12 text-center m-4">
+                            <button className="btn btn-success" onClick={this.handleClick}>Signup</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,12 +77,12 @@ export class Signup extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    value:state.loginreducer
+    value: state.loginreducer
 })
 
 const mapDispatchToProps = dispatch => {
     return {
-        singupdata:(data)=>dispatch(singupdata(data))
+        singupdata: (data) => dispatch(singupdata(data))
 
     }
 }
