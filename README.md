@@ -14,7 +14,7 @@ Football League app:
 
 3:Home page:
 
-![Homepage](https://github.com/suryakh/FootballApp-Pagarbook/blob/master/snapshots/Homepage.png)
+![Homepage](https://github.com/suryakh/FootballApp-Pagarbook/blob/master/snapshots/Homepage1.png)
 
 4:Competions respective teams:
 
