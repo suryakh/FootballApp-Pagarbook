@@ -27,7 +27,6 @@ def getCompetionData():
     
 @competitions.route('/teams/<id>')
 def getteamsdata(id):
-    print(id)
     token = request.headers.get('Authorization')
     encoded_data = token.split(' ')[0]
     try:
@@ -36,7 +35,6 @@ def getteamsdata(id):
         cursor.execute(
         """select competitions.id as competition_id,competitions.Name,teams.* from compteams left join competitions ON compteams.competition_id = competitions.id left join teams ON compteams.team_id = teams.id where competitions.id = %s""",(id,)
         )
-        # print(id)
         results = cursor.fetchall()
         cursor.close()
         items = []

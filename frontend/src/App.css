@@ -11,7 +11,7 @@
     background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
 }
-.card {
+.card,.teamcard {
     border-radius: 20px;
     border: 1px solid black;
     box-shadow: 10px 5px 20px rgb(179, 179, 179);
@@ -31,13 +31,34 @@
     padding-top: 10%;
 }
 .verticalclick:hover{
-    background-color: #6632f6;
+    background-color: #e6e6e6;
     border-radius: 0px 20px 20px 0px;
 }
 .teamlist {
     border: 3px solid white;
-    background-color: rgb(42, 42, 44);
     border-radius: 30px;
     margin-top: 10px;
+    color: black;
+    box-shadow: 10px 5px 20px rgb(179, 179, 179);
+    background-color: #ffffff;
+    background-image: linear-gradient(90deg, #5d4195 0%, #ffffff 100%);
+
+
+}
+.hidden {
+    display: none;
+}
+.teamcard span {
+    color: blue;
+}
+.teamcard p {
+    font-size: 20px;
+}
+.teamtitle {
+    background-color: #5d4195;
+    border-radius: 10px 10px 0px 0px;
     color: white;
+}
+.flagdiv {
+    height: 300px;
 }

@@ -23,31 +23,38 @@ export class Team extends Component {
     render() {
         if(this.props.value.login){
         return (
-            <div className="col-8">
-                <div>
+            <div className="container d-flex justify-content-center">
+            <div className="col-8 p-5 m-5 teamcard">
+                <div className="teamtitle p-3 m-2">
                     <h3>{this.state.team.tla}</h3>
                 </div>
+                <div className="border text-center flagdiv">
+                    <img className="img-fluid" src={this.state.team.flag} />
+                </div>
+                <div className="m-4">
                 <div>
-                    <img src={this.state.team.flag} />
+                    <p><span>Team Name: </span>{this.state.team.name}</p>
                 </div>
                 <div>
-                    <p>{this.state.team.name}</p>
+                    <p><span>Team From: </span>{this.state.team.Area}</p>
                 </div>
                 <div>
-                    <p>{this.state.team.Area}</p>
-                </div><div>
-                    <p>{this.state.team.shortName}</p>
-                </div><div>
-                    <p>{this.state.team.address}</p>
-                </div><div>
-                    <p>{this.state.team.website}</p>
-                </div><div>
-                    <p>{this.state.team.founded}</p>
-                </div><div>
-                    <p>{this.state.team.clubcolor}</p>
-                </div><div>
-                    <p>{this.state.team.lastUpdated}</p>
+                    <p><span>Founded: </span>{this.state.team.founded}</p>
                 </div>
+                <div>
+                    <p><span>address: </span>{this.state.team.address}</p>
+                </div>
+                <div>
+                    <p><span>WebSite: </span>{this.state.team.website}</p>
+                </div>
+                <div>
+                    <p><span>ClubColor: </span>{this.state.team.clubcolors}</p>
+                </div>
+                </div>
+                <div className="text-right">
+                    <p><span>Lastupdated:</span>{this.state.team.lastUpdated}</p>
+                </div>
+            </div>
             </div>
         )
     }
